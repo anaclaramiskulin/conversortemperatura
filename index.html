@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="author" content="Ana Clara Barcella Miskulin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor térmico</title>
+</head>
+
+<body>
+    <h1>Conversor térmico</h1>
+</head>
+<body>
+    <div>
+
+        <div id="C">      
+            <input type="text" name="celsius" id="celsius">
+            <label>Celsius</label>
+        </div>
+
+        <div id="K">
+            <input type="text" name="Kelvin" id="Kelvin">
+            <label>Kelvin</label>
+        </div>
+
+        <div id="F">
+            <input type="text" name="fahrenheit" id="fahrenheit">
+            <label>Fahrenheit</label>
+        </div>  
+
+        <div id="R">
+            <input type="text" name="rankine" id="rankine">
+            <label>Rankine</label>
+        </div>  
+
+
+        <div id="escolha">
+            <label>Escolha uma opção:</label>
+                <br>
+            <select id="framework">
+                <option value="1">Celsius para Fahrenheit</option>
+                <option value="2">Celsius para Kelvin</option>
+                <option value="3">Celsius para Rankine</option> 
+                <option value="4">Kelvin para Fahrenheit</option>
+                <option value="5">Kelvin para Celsius</option>  
+                <option value="6">kelvin para Rankine</option> 
+                <option value="7">Fahrenheit para Celsius</option> 
+                <option value="8">Fahrenheit para Kelvin</option> 
+                <option value="9">Fahrenheit para Rankine</option>
+                <option value="10">Rankine para Celsius</option>
+                <option value="11">Rankine para Fahrenheit</option>
+                <option value="12">Rankine para Kelvin</option>  
+            </select>
+        </div>
+            
+        <div id="calcular">
+            <button onclick="adicionaLinha('tbl')">Calcular</button>
+        </div>    
+            <br>
+        <div id="tabela">
+            <table id="tbl" border="1">
+            <tr>
+                <h1 id="resultados">Resultados:</h1>
+                <td>Celsius</td>
+                <td>Fahrenheit</td>
+                <td>Kelvin</td>
+                <td>Rankine</td>
+            </tr>
+            </table> 
+        </div>
+
+        <form>
+        <div id="limpar">
+            <button type="submit">Limpar</button>
+        </div>
+        </form> 
+</body>
+        
+        <script>
+            //Funcao adiciona uma nova linha na tabela
+            function adicionaLinha(idTabela) {
+               var valor = document.getElementById("celsius").value;
+               var valor2 = document.getElementById("Kelvin").value;
+               var valor3 = document.getElementById("fahrenheit").value;
+               var valor4 = document.getElementById("rankine").value;
+               var sb = document.getElementById("framework").value;
+               var celsius = 0 ;
+               var Fahrenheit = 0;
+               var Kelvin = 0;
+               var rankine = 0;
+               
+               if (sb == 1){
+                  valor = parseFloat(valor);
+                  Fahrenheit = (valor*1.8)+32;
+                  alert("Celsius para "+ "Fahrenheit"  +"\n"+
+                  "Celsius : " + valor +"\n"+
+                  "Fahrenheit : " + Fahrenheit );
+                  celsius = valor
+              }
+               if (sb == 2){
+                   valor = parseFloat(valor);
+                   Kelvin = valor + 273.15;
+                  alert("Celsius para "+ "Kelvin"  +"\n"+
+                  "Celsius : " + valor +"\n"+
+                  "Kelvin : " + Kelvin );
+                  celsius = valor
+               }
+                if (sb == 3){
+                   valor = parseFloat(valor);
+                   rankine = (valor * 1.8)+491.67
+                   alert("Celsius para "+ "Rankine"  +"\n"+
+                  "Rankine : " + valor +"\n"+
+                  "Rankine : " + rankine );
+                   celsius = valor
+               } 
+               if (sb == 4){
+                   valor2 = parseFloat(valor2)
+                   Fahrenheit = ((valor2-273.15)*1.8)+32;
+                  alert("Kelvin para "+ "Fahrenheit"  +"\n"+
+                  "Kelvin : " + valor2 +"\n"+
+                  "Fahrenheit : " + Fahrenheit );
+                 Kelvin = valor2
+               }
+              if (sb == 5){
+                   valor2 = parseFloat(valor2);
+                   celsius = valor2-273.15;
+                  alert("Kelvin para "+ "Celsius"  +"\n"+
+                  "Kelvin : " + valor2 +"\n"+
+                  "Celsius : " + celsius );
+                  Kelvin = valor2
+               }
+              if (sb == 6){
+                   valor2 = parseFloat(valor2);
+                   rankine = ((valor2-273.15)*1.8)+491.67;
+                  alert("Kelvin para "+ "Rankine"  +"\n"+
+                  "Kelvin : " + valor2 +"\n"+
+                  "Rankine : " + rankine );
+                  Kelvin = valor2
+               }
+              if (sb == 7){
+                   valor3 = parseFloat(valor3);
+                   celsius = (valor3-32)/1.8;
+                  alert("Fahrenheit para "+ "Celsius"  +"\n"+
+                  "Fahrenheit : " + valor3 +"\n"+
+                  "Celsius : " + celsius );
+                  Fahrenheit = valor3; 
+               }
+               if (sb == 8){
+                   valor3 = parseFloat(valor3);
+                   Kelvin = ((valor3-32)/1.8)+273.15;
+                  alert("Fahrenheit para "+ "Kelvin"  +"\n"+
+                  "Fahrenheit : " + valor3 +"\n"+
+                  "Kelvin : " + Kelvin );
+                  Fahrenheit = valor3;
+               }
+               if (sb == 9){
+                   valor3 = parseFloat(valor3);
+                   rankine = valor3+459.67;
+                  alert("Fahrenheit para "+ "Rankine"  +"\n"+
+                  "Fahrenheit : " + valor3 +"\n"+
+                  "Rankine : " + rankine );
+                  Fahrenheit = valor3;
+               }
+               if (sb == 10){
+                   valor4 = parseFloat(valor4);
+                   celsius = (valor4-491.67)/1.8;
+                  alert("Rankine para "+ "Celsius"  +"\n"+
+                  "Rankine : " + valor4 +"\n"+
+                  "Celsius : " + celsius );
+                  rankine = valor4;
+               }
+              if (sb == 11){
+                   valor4 = parseFloat(valor4);
+                   Fahrenheit = valor4+459.67;
+                  alert("Rankine para "+ "Fahrenheit"  +"\n"+
+                  "Rankine : " + valor4 +"\n"+
+                  "Fahrenheit : " + Fahrenheit );
+                  rankine = valor4;
+               }
+               if (sb == 12){
+                   valor4 = parseFloat(valor4);
+                   Kelvin = ((valor4-491.67)/1.8)+273.15;
+                  alert("Rankine para "+ "Fahrenheit"  +"\n"+
+                  "Rankine : " + valor4 +"\n"+
+                  "Kelvin : " + Kelvin );
+                  rankine = valor4;
+                }
+                 
+                var tabela = document.getElementById(idTabela);
+                var numeroLinhas = tabela.rows.length;
+                var linha = tabela.insertRow(numeroLinhas);
+                var celula1 = linha.insertCell(0);
+                var celula2 = linha.insertCell(1);   
+                var celula3 = linha.insertCell(2); 
+                var celula4 = linha.insertCell(3); 
+                //var celula5 = linha.insertCell(4);
+                //var celula6 = linha.insertCell(5); 
+                // celula7 = linha.insertCell(6)
+                celula1.innerHTML = celsius; 
+                celula2.innerHTML =  Fahrenheit; 
+                celula3.innerHTML =  Kelvin;
+                celula4.innerHTML =  rankine;
+                //celula5.innerHTML =  "<button onclick='removeLinha(this)'>Remover</button>";
+                //celula6.innerHTML =  "<button onclick='removeLinha(this)'>Remover</button>";
+                //celula7.innerHTML =  "<button onclick='removeLinha(this)'>Remover</button>";
+                 }
+                // funcao remove uma linha da tabela
+                function removeLinha(linha) {
+                var i=linha.parentNode.parentNode.rowIndex;
+                document.getElementById('tbl').deleteRow(i);
+                }    
+        </script>       
+</body>
+</html>
